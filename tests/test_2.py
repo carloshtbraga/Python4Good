@@ -1,84 +1,77 @@
-from src.exercises_1.fahrenheit import fahrenheit
-from src.exercises_1.sum import sum
-from src.exercises_1.is_even import is_even
-from src.exercises_1.check_number_sign import check_number_sign
-from src.exercises_1.is_palindrome import is_palindrome
-from src.exercises_1.factorial import factorial
-from src.exercises_1.count_vowels import count_vowels
-from src.exercises_1.is_sorted import is_sorted
-from src.exercises_1.has_common_elements import has_common_elements
-from src.exercises_1.average import average
-from src.exercises_1.biggest_number import biggest_number
-from src.exercises_1.biggest_name import biggest_name
+from src.exercises_2.is_prime import is_prime
+from src.exercises_2.contains_only_even import contains_only_even
+from src.exercises_2.count_digits import count_digits
+from src.exercises_2.sum_digits import sum_digits
+from src.exercises_2.is_pangram import is_pangram
+from src.exercises_2.power import power
+from src.exercises_2.find_perfect_numbers import find_perfect_numbers
+from src.exercises_2.is_perfect_square import is_perfect_square
+from src.exercises_2.calculate_bmi import calculate_bmi
+from src.exercises_2.contains_only_uppercase import contains_only_uppercase
+from src.exercises_2.calculate_age import calculate_age
+from src.exercises_2.is_anagram import is_anagram
+import datetime
+import pytest
 
 
-def test_fahrenheit():
-    assert fahrenheit(50) == 122
-    assert fahrenheit(33) == 91.4
+def test_is_prime():
+    assert is_prime(7)
+    assert not is_prime(15)
 
 
-def test_sum():
-    assert sum(5, 5) == 10
-    assert sum(0, 0) == 0
-    assert sum(-1, -1) == -2
+def test_contains_only_even():
+    assert contains_only_even([2, 4, 6, 8])
+    assert not contains_only_even([1, 3, 5, 7])
 
 
-def test_is_even():
-    assert is_even(4)
-    assert not is_even(7)
+def test_count_digits():
+    assert count_digits(12345) == 5
+    assert count_digits(-9876) == 4
 
 
-def test_check_number_sign():
-    assert check_number_sign(5) == "Positivo"
-    assert check_number_sign(-2) == "Negativo"
-    assert check_number_sign(0) == "Zero"
+def test_sum_digits():
+    assert sum_digits(12345) == 15
+    assert sum_digits(-9876) == 30
 
 
-def test_is_palindrome():
-    assert is_palindrome("radar")
-    assert not is_palindrome("python")
+def test_is_pangram():
+    assert is_pangram("The quick brown fox jumps over the lazy dog")
+    assert not is_pangram("Hello, World!")
 
 
-def test_factorial():
-    assert factorial(5) == 120
+def test_power():
+    assert power(2, 3) == 8
+    assert power(5, 0) == 1
 
 
-def test_count_vowels():
-    assert count_vowels("Hello, World!") == 3
+def test_find_perfect_numbers():
+    assert find_perfect_numbers(1, 100) == [6, 28]
+    assert find_perfect_numbers(1, 1000) == [6, 28, 496]
 
 
-def test_is_sorted():
-    assert is_sorted([1, 2, 3, 4])
-    assert not is_sorted([4, 2, 5, 1, 6])
+def test_is_perfect_square():
+    assert is_perfect_square(25)
+    assert not is_perfect_square(18)
 
 
-def test_has_common_elements():
-    assert not has_common_elements([1, 2, 3], [4, 5, 6])
-    assert has_common_elements([1, 2, 3], [3, 4, 5, 6])
+def test_calculate_bmi():
+    assert calculate_bmi(70, 1.75) == pytest.approx(22.86, abs=0.01)
+    assert calculate_bmi(80, 1.65) == pytest.approx(29.38, abs=0.01)
 
 
-def test_average():
-    assert average([5, 5, 5]) == 5
-    assert average([7.5, 8, 8.5]) == 8
-    assert average([0, 10, 0]) == 10 / 3
-    assert average([-1, -1, -1]) == -1
+def test_contains_only_uppercase():
+    assert contains_only_uppercase("HELLO")
+    assert not contains_only_uppercase("Hello")
 
 
-def test_find_biggest_name():
-    first_name_list = ["José", "Lucas", "Nádia", "Fernanda"]
-    second_name_list = ["José", "Nádia", "João"]
-    third_name_list = ["Henrique", "João"]
-    fourth_name_list = ["José", "João"]
-    assert biggest_name(first_name_list) == "Fernanda"
-    assert biggest_name(second_name_list) == "Nádia"
-    assert biggest_name(third_name_list) == "Henrique"
-    #  First occurrence prevails
-    assert biggest_name(fourth_name_list) == "José"
+def test_calculate_age():
+    birthdate1 = datetime.date(1990, 5, 10)
+    assert calculate_age(birthdate1) == 33
+
+    birthdate2 = datetime.date(2005, 12, 25)
+    assert calculate_age(birthdate2) == 18
 
 
-def test_find_biggest_number():
-    assert biggest_number(2, 3) == 3
-    assert biggest_number(6, 5) == 6
-    assert biggest_number(4, 4) == 4
-    assert biggest_number(-1, 0) == 0
-    assert biggest_number(-1, -2) == -1
+def test_is_anagram():
+    assert is_anagram("listen", "silent")
+    assert not is_anagram("hello", "world")

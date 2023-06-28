@@ -1,5 +1,6 @@
-# Monte uma fução que peça dois números inteiros. Retorne
-# a soma desses dois números na tela:
+# Somar dois números:
+# Implemente uma função que recebe dois números como
+# entrada e retorna a soma deles.
 
-def sum():
+def sum(number, other_number):
     ...
