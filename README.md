@@ -19,8 +19,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 # Instale as dependências
 python3 -m pip install -r dev-requirements.txt
-# Roda os testes da pasta escolhida onde no X você coloca o número da pasta que quer testar ( INDICADO )
-python3 -m pytest tests/test_X.py
+# Roda os testes da pasta exercises 1 
+python3 -m pytest tests/test_1.py
+# Roda os testes da pasta exercises 2 
+python3 -m pytest tests/test_2.py
+# Roda os testes da pasta exercises 3 
+python3 -m pytest tests/test_3.py
 # Roda todos os testes
 python3 -m pytest
 ```

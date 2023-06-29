@@ -1,26 +1,45 @@
-def minha_funcao(c):
-    print(f"Olá, {c}!")
+from src.exercises_3.fish import fish
+from src.exercises_3.wage import wage
+from src.exercises_3.ink import ink
 
 
-def test_minha_funcao(capsys):
-    minha_funcao("oi")
-    capturador = capsys.readouterr()
-    assert capturador.out.strip() == "Olá, oi!"
-    minha_funcao("tchau")
-    capturador = capsys.readouterr()
-    assert capturador.out.strip() == "Olá, tchau!"
+def test_fish(capsys):
+    fish(40)
+    cap = capsys.readouterr()
+    assert cap.out.strip() == "Se você pescou 40 kg, isento de multa"
+
+    fish(60)
+    cap = capsys.readouterr()
+    assert cap.out.strip() == "Excedeu o limite em 10 kg. Multa de 40.0"
 
 
-# Se quiser usar parametros
-# import pytest
+def test_wage(capsys):
+    valorHora = 10.0
+    horasTrabalhadas = 40
+    salarioLiquido = 304.0
+    wage(valorHora, horasTrabalhadas)
+    cap = capsys.readouterr()
+    assert (
+        cap.out.strip() == f"Seu salário líquido é de {salarioLiquido} reais."
+    )
+
+    valorHora = 15.5
+    horasTrabalhadas = 35
+    salarioLiquido = 412.3
+    wage(valorHora, horasTrabalhadas)
+    cap = capsys.readouterr()
+    assert (
+        cap.out.strip() == f"Seu salário líquido é de {salarioLiquido} reais."
+    )
 
 
-# def minha_funcao(valor):
-#     print("O valor é:", valor)
+def test_ink(capsys):
+    area_m = 50
+    ink(area_m)
+    cap = capsys.readouterr()
+    assert cap.out.strip() == "Você usará 1 lata(s) e isso custará 80.0."
 
-
-# @pytest.mark.parametrize("valor", [5, 10])
-# def test_minha_funcao(capsys, valor):
-#     minha_funcao(valor)
-#     capturador = capsys.readouterr()
-#     assert capturador.out.strip() == f"O valor é: {valor}"
+    area_m = 2000
+    ink(area_m)
+    cap = capsys.readouterr()
+    assert cap.out.strip() == "Você usará 38 lata(s) e isso custará 3040.0."
