@@ -4,5 +4,5 @@
 # presentes na lista. A função deve retornar a média.
 
 
-def average():
+def average(list_of_numbers):
     ...
