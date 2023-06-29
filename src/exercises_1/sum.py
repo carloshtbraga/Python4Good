@@ -3,4 +3,4 @@
 # entrada e retorna a soma deles.
 
 def sum(number, other_number):
-    ...
+    return number + other_number
