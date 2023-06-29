@@ -1,5 +1,5 @@
 from src.exercises_1.fahrenheit import fahrenheit
-from src.exercises_1.sum import sum
+from src.exercises_1.sum_positive_numbers import sum_positive_numbers
 from src.exercises_1.is_even import is_even
 from src.exercises_1.check_number_sign import check_number_sign
 from src.exercises_1.is_palindrome import is_palindrome
@@ -17,10 +17,10 @@ def test_fahrenheit():
     assert fahrenheit(33) == 91.4
 
 
-def test_sum():
-    assert sum(5, 5) == 10
-    assert sum(0, 0) == 0
-    assert sum(-1, -1) == -2
+def test_sum_positive_numbers():
+    assert sum_positive_numbers(5, 5) == 10
+    assert sum_positive_numbers(0, 0) == 0
+    assert sum_positive_numbers(-1, -1) == -2
 
 
 def test_is_even():
