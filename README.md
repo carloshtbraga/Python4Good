@@ -8,21 +8,21 @@
 
 ```bash
 # Clone o repositório
-$ git clone LINK
+git clone LINK
 # Acesse o diretório do projeto
-$ cd nome-do-repositorio
+cd nome-do-repositorio
 # Crie sua Branch
-$ git checkout -b nome-da-sua-branch
+git checkout -b nome-da-sua-branch
 # Crie ambiente virtual
-$ python3 -m venv .venv
+python3 -m venv .venv
 # Ative o mesmo
-$ source .venv/bin/activate
+source .venv/bin/activate
 # Instale as dependências
-$ python3 -m pip install -r dev-requirements.txt
+python3 -m pip install -r dev-requirements.txt
 # Roda os testes da pasta escolhida onde no X você coloca o número da pasta que quer testar ( INDICADO )
-$ python3 -m pytest tests/test_X.py
+python3 -m pytest tests/test_X.py
 # Roda todos os testes
-$ python3 -m pytest
+python3 -m pytest
 ```
 
 
