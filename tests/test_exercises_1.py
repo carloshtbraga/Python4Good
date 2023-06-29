@@ -72,7 +72,7 @@ def test_find_biggest_name():
     assert biggest_name(first_name_list) == "Fernanda"
     assert biggest_name(second_name_list) == "Nádia"
     assert biggest_name(third_name_list) == "Henrique"
-    #  First occurrence prevails
+    #  First odccurrence prevails
     assert biggest_name(fourth_name_list) == "José"
 
 
