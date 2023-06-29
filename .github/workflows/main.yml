@@ -16,9 +16,7 @@ jobs:
         python-version: 3.x
         
     - name: Instalar dependências
-      run: |
-        pip install -r requirements.txt
-        pip install -r dev-requirements.txt
+      run: pip install -r dev-requirements.txt
       
     - name: Executar testes
       run: pytest
